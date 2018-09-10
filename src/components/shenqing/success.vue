@@ -20,30 +20,42 @@ export default {
    created(){
 
      var that = this 
+      setTimeout(()=>{
+        that.util.ajax.post('/admin/copyrightTemp/getId.do').then(e=>{
+          var data = JSON.parse(e.data)
+           let art_name =data.pro_name  
+           let number = data.number
+           this.zhifu(art_name,number)
+        })
+       },800)
 
-     that.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
-                    if(e.code != 200){
-                    that.$router.push('/pay_money?number='+'支付')  
-                    return false;
-                    }else{
-                      setTimeout(()=>{
-                           // 调用临时接口查询数据
-                          that.util.ajax.post('/admin/copyrightTemp/getId.do').then(e=>{
-                          let data = e.data
-                          data = JSON.parse(data)  
-                          //得到名称和url还有证书编码     
-                          // 在这里在真正保存的请求
-                          that.initData(data)        
-                      })
-                    },1000)
-                  }
-                })
+
 
     },
      mounted(){
         this.loading();
      },
      methods:{
+      
+       zhifu(art_name,number){
+          this.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
+                    if(e.code != 200){
+                    this.$router.push('/pay_money?name='+art_name+'&number='+number)  
+                    return false;
+                    }else{
+                      setTimeout(()=>{
+                           // 调用临时接口查询数据
+                          this.util.ajax.post('/admin/copyrightTemp/getId.do').then(e=>{
+                          let data = e.data
+                          data = JSON.parse(data)  
+                          //得到名称和url还有证书编码     
+                          // 在这里在真正保存的请求
+                          this.initData(data)        
+                      })
+                    },1000)
+                  }
+                })
+       },
         loading(){
              Indicator.open({spinnerType: 'fading-circle'});
               

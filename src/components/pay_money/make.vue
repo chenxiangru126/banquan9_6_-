@@ -22,7 +22,7 @@ export default {
            let art_name =data.name
            that.zhifu(art_name)
          })
-       },500)
+       },800)
     },
   mounted(){ 
         
