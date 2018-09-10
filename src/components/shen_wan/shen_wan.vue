@@ -8,7 +8,7 @@
         <img  src="../../static/images/ssss-ios.png"  />
     </div>
    <div class="wan_img">
-       
+
        <img :src="url1" alt="">
        <img :src="url2" alt="">
        <p class="zhu">注：点击二维码可查看更多证书详情</p>
