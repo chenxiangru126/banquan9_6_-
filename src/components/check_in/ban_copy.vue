@@ -425,7 +425,7 @@ export default {
        }else{
            url = url_str;
        }
-    console.log("我需要的url"+url)
+//    console.log("我需要的url"+url)
 
 
 

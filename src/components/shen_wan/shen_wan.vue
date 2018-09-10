@@ -15,23 +15,26 @@
        <div style=" padding: 0 1.375rem;">
        <h3 style="font-size:18px;color:#ffffff;border-bottom: .0625rem solid #9B9B9B;padding-bottom:4px">版权登记</h3>
        <p style="font-size: 10px;color: #9B9B9B;">版权登记证书已申请</p>
-       <img :src="b_url" alt="">
+       <img class="ban_shenwan" :src="b_url" alt="">
        </div>
       
    </div>
-     <div class="agree ">
+     <div class="agree">
          <h3 style="font-size:18px;color:#ffffff;border-bottom: .0625rem solid #9B9B9B;padding-bottom:4px">版权记录</h3>
-         <p style="text-align:left">当前著作权人<span>{{it.createTime}}</span></p>
-            <div v-show="!isshow">
-             <div style="font-size:1rem;text-align:center">变更信息</div>
-             <p style="text-align:center">暂无变更信息</p>
-             </div>
-             <div v-show="isshow">
-               <p style="font-size:14px;color:#ffffff">{{it.createTime}}&nbsp;&nbsp;&nbsp;{{it.new_realname}}转让给{{it.old_realname}}</p>
+         <div class="content"  v-show="showChange" v-for="(it,index) in list" :key='index'>
+             <p style="text-align:left">当前著作权人<span>{{it.createTime}}</span></p>
+             <div v-show="!isshow">
+                 <div style="font-size:1rem;text-align:center">变更信息</div>
 
              </div>
-           
-    </div> 
+             <div v-show="isshow">
+                 <p style="font-size:14px;color:#ffffff">{{it.createTime}}&nbsp;&nbsp;&nbsp;{{it.new_realname}}转让给{{it.old_realname}}</p>
+
+             </div>
+         </div>
+         <p v-show="showNull" style="text-align:center">暂无变更信息</p>
+
+    </div>
 
        <div class="share" v-show="share">
             <div class="share_m">
@@ -47,7 +50,23 @@
 <script>
 import  util from '../../libs/util'
 export default {
- 
+    created(){
+      let _p={
+        number:this.$route.query.number
+      }
+      this.util.ajax.post('/admin/authCopyright/bq_change.do',_p).then(e=>{
+        //获取url
+        if(e.code == 200){
+          this.showNull=false
+          this.showChange =true
+            this.list = e.data
+        }else{
+          this.showNull=true
+          this.showChange =false
+        }
+
+      })
+    },
     mounted(){
       // 请求申请成功显示证书
         // let number = this.$route.query.number
@@ -62,6 +81,7 @@ export default {
                this.url1 = e.data.c_url1
                this.url2 = e.data.c_url2
                this.b_url = e.data.b_url
+          }else{
           }
 
         })
@@ -70,13 +90,16 @@ export default {
     },
     data(){
       return{
-       number :null,
+        number :null,
         isShare:true,
         share:false,
-         url1:null,
-          url2:null,
-          b_url:null,
-          isshow:false,
+        url1:null,
+        url2:null,
+        b_url:null,
+        showChange:false,
+        isshow:false,
+        showNull:false,
+        list:[]
       }
 
     },

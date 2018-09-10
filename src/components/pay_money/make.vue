@@ -9,29 +9,30 @@
 <script>
 import util from '../../libs/util'
 export default {
+  data(){
+    return{
+
+    }
+  },
    created(){
-
-     var that = this 
+     var that = this
        setTimeout(()=>{
-        //  alert('支付测试ssssssss')
-         that.zhifu()
-
-      },5000)  
+         that.util.ajax.post('/admin/copyrightTemp/getId.do').then(e=>{
+           var data = JSON.parse(e.data)
+           let art_name =data.name
+           that.zhifu(art_name)
+         })
+       },800)
     },
-
   mounted(){ 
         
   },
-  data(){
-    return{
-      
-    }
-  },
+
   methods:{
-     zhifu(){
+     zhifu(art_name){
        this.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
                     if(e.code != 200){
-                    this.$router.push('/secret?name='+'支付')  
+                    this.$router.push('/secret?number='+art_name)
                     return false;
                     }else{
                       setTimeout(()=>{
@@ -59,8 +60,8 @@ export default {
                     let url1 = e.data.bc_certificate_url1
                      let url2 = e.data.bc_certificate_url2 
                   let number = e.data.block_cert_number
-                  let name = e.data.name 
-                 this.$router.push('/ban_cun_zhan?name='+name+'&url1='+url1+'&number='+number+'&url2='+url2)         
+                  let name = e.data.name
+                 this.$router.push('/ban_cun_zhan?name='+name+'&url1='+url1+'&number='+number+'&url2='+url2)
                    }else {   
                        this.Toast(e.message)
                        setTimeout(()=>{
