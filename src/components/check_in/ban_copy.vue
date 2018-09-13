@@ -76,12 +76,12 @@
         <!-- 主图和附图 -->
         
          <div class="upload_master " style="border-bottom: .0625rem solid #BFBFBF;border-right: .0625rem solid #BFBFBF;" @click="show_list('one')">
-         <div class="no_img" v-show="!url_list[0]">
+         <div class="no_img" v-show="!url_list_one">
          <img src="../../static/images/add_img.png" alt="">
          </div>
 
-         <div class="has_img" v-show="url_list[0]">
-            <img :src="url_list[0]" alt="" id="img_one"> 
+         <div class="has_img" v-show="url_list_one">
+            <img :src="url_list_one" alt="" id="img_one"> 
          </div>
          </div>
 
