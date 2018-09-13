@@ -19,7 +19,7 @@
        </div>
       
    </div>
-     <div class="agree">
+     <div class="agree3">
          <h3 style="font-size:18px;color:#ffffff;border-bottom: .0625rem solid #9B9B9B;padding-bottom:4px">版权记录</h3>
          <div class="content"  v-show="showChange" v-for="(it,index) in list" :key='index'>
              <p style="text-align:left">当前著作权人<span>{{it.createTime}}</span></p>

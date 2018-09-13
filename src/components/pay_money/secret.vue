@@ -52,7 +52,7 @@
                         }catch(e){
                         _this.userGetinfo();
                         }
-                        },300)
+                        },450)
                         },
                    submit_e(a) {
                 //a 支付方式 1支付宝 2微信

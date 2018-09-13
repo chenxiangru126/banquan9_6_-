@@ -1572,7 +1572,7 @@ display: inline-block;
     text-align: center;
     z-index: 1000;
     -webkit-transition: opacity .3s linear;
-    transition: opacity .3s linear
+    transition: opacity 50s linear !important
 }
 .mint-toast.is-placebottom {
     bottom: 50px;

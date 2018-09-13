@@ -143,7 +143,6 @@ const config = {
         // target: 'http://xiaoceshi.tunnel.qydev.com',
         // target: 'http://59.110.169.175:8080',
         // target: 'http://192.168.3.40:8080',
-        
             target: 'http://test.bjyishubiyeji.com:8080',
         //  target: 'https://yddwechat.bjyishubiyeji.com:8443',
           // target:'http://songzhan.tunnel.qydev.com',

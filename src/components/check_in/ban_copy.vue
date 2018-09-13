@@ -237,6 +237,7 @@ export default {
                 formData.append('type', 'test');
                 // 发送异步请求，把formData发送异步请求
                 this.util.ajax.post("/admin/authCopyright/upload.do", formData).then(e => {
+                    // debugger
                     
                      if(num == 'one'){
                         this.url_list_one = e.path;  
@@ -353,7 +354,7 @@ export default {
             {id: 16, name: '家用电器'},
             {id: 17, name: '数码电子'},
             {id: 18, name: '智能设备'},
-            {id: 19, name: '智能设备'},
+            {id: 19, name: '室内设计'},
             {id: 20, name: '园林规划'},
             {id: 21, name: '建筑设计'},
             {id: 22, name: '包装'},

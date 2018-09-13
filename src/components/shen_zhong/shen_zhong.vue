@@ -4,7 +4,7 @@
        <img :src="url1" alt="">
         <img :src="url2" alt="">
    </div>
-     <div class="agree ">
+     <div class="agree2 ">
             <div class="flex-h" style="margin-top:15px;" >    
            <div class="cancel_btn ji_btn " @click="ji_xu_s" >申请已提交</div>
             </div>

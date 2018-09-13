@@ -1,11 +1,11 @@
 <template>
 <div class="ban_cun">
    <div class="ban_cun_img">
-       <img :src="url1" alt="">
-       <img :src="url2" alt="">
+       <img class="img1" :src="url1" alt="">
+       <img class="img2" :src="url2" alt="">
    
    </div>
-     <div class="agree">
+     <div class="agree1">
            <div class="text">您已成功获得由中云文化颁发的版权存证书继续申请由中云文化、
                贵州版权局颁发的版权登记证书，还可以获得由中云文化提供的权确权、
                版权监测、版权维护、 交易信息变更等服务内容。 </div>
