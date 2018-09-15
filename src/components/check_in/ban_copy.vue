@@ -464,7 +464,9 @@ export default {
                  paramStr:paramStr,
                  type:1
              }
+             debugger
              this.util.ajax.post('/admin/copyrightTemp/save.do',_np).then(e=>{  
+               console.log(e.code);
                      if(e.code ==200){
                         this.$router.push('/secret?number='+name)
                      }
