@@ -10,6 +10,7 @@ const pay = [{
             headers:resolve => require(['../../components/common/header.vue'], resolve)
         }
     },
+
     {  
         path: '/pay_money',
         name: 'pay_money',
@@ -30,6 +31,28 @@ const pay = [{
                     default:resolve => require(['../../components/pay_money/make.vue'], resolve),
                     headers:resolve => require(['../../components/common/header.vue'], resolve)
                 }
-            }
+            },
+  {
+    path: '/blank',
+    name: 'blank',
+    meta: {
+      title: ""
+    },
+    components: {
+      default: resolve => require(['../../components/pay_money/blank.vue'], resolve),
+      // headers: resolve => require(['../../components/common/header.vue'], resolve)
+    }
+  },
+  {
+    path: '/continue',
+    name: 'continue',
+    meta: {
+      title: ""
+    },
+    components: {
+      default: resolve => require(['../../components/pay_money/continue.vue'], resolve),
+      // headers: resolve => require(['../../components/common/header.vue'], resolve)
+    }
+  }
 ]
 export default pay;

@@ -1,6 +1,10 @@
 
     <template>
     <div class="reg2_wrap">
+        <div class="header_if" >
+            <div class="_back" @click="back_event"></div>
+            <!--<div class="_title">证书申请</div>-->
+        </div>
     <!-- 交保证金 -->
    <div class="reg2_content">
       <div>版权登记证书申请费</div>
@@ -17,6 +21,7 @@
     <script>
     import util from '../../libs/util'
     export default {
+
         created(){
             var that = this 
              let name = that.$route.query.name
@@ -29,16 +34,23 @@
            
              let number = this.$route.query.number
               this.number = number
-             
+             let name =this.$route.query.name
+              this.name = name
+             let url =this.$route.query.url
+             this.name = url
         },
         data(){
             return{
                 number:null,
                 token:null, 
-
+                name:null,
+                url:null
             }
         },
          methods:{
+           back_event(){
+            this.$router.go(-1)  //payMoney返回跳转
+           },
               userGetinfo(){
                         var _this = this;
                         setTimeout(function(){
@@ -56,7 +68,7 @@
                         }
                         },300)
                         },
-                   submit_e(a) {
+                   submit_e(a) {//
                 //a 支付方式 1支付宝 2微信
                      
                     var url;
@@ -74,23 +86,50 @@
                         }
                     if(a==1){  
                         url= location.protocol+'//'+location.hostname
-                           +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=1'+'&token='+this.token;
+
+                           +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=2';
                     }else if(a==2){
                          url= location.protocol+'//'+location.hostname
-                               +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=2'+'&token='+this.token;
-                        
+                               +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=2';
+
                     }
-                    iosObject.showCheckOrderBtn(location.origin+'/index.html#/success')
+                    iosObject.showCheckOrderBtn(location.origin+'/index.html#/continue')
                         window.location.href=url;    
                                      
             } 
          }
-        
+        //
         
         
     }
     </script>
     <style lang="less">
     @import 'pay_money.less';
+    .header_if{
+        background: #232323;
+        width:100%;
+        position: absolute;
+        z-index: 100;
+        text-align: center;
+        top:1.25rem;
+
+        ._back{
+            width: 4rem;
+            height: 2.933333rem;
+            background: url(../../static/images/left.svg) no-repeat;
+            background-size: 1.466667rem;
+            background-position: 1.333333rem center;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+        }
+        /*._title{*/
+            /*height: 2.933333rem;*/
+            /*line-height: 2.933333rem;*/
+            /*font-size: 1.2rem;*/
+            /*color: #fff;*/
+        /*}*/
+    }
     </style>
     

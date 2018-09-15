@@ -148,7 +148,7 @@
                 <div style="min-height: 3.9875rem;display: block;" class="text_div">
                     <p>权利拥有状况</p>
                     <div class="check_text">
-                    <label for=""  v-for="(item,index) in list_check " :key="index" class="xuan" >
+                    <label  v-for="(item,index) in list_check " :key="index" class="xuan" >
                       
                         <input type="checkbox" class="__input" checked  :id="xuanze(index)">{{item.name}}</label>
                   </div>  
@@ -222,7 +222,7 @@ Vue.component(DatetimePicker.name, DatetimePicker);
              this.url = url
              this.art_name = name
              this.number = number
-            
+
 
             this.util.ajax.get('/admin/authCopyright/getDicList.do').then(e=>{
                  let list =e.data.a2.result
