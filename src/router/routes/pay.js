@@ -37,7 +37,7 @@ const pay = [{
     name: 'blank',
     meta: {
       title: ""
-    },
+    },//
     components: {
       default: resolve => require(['../../components/pay_money/blank.vue'], resolve),
       // headers: resolve => require(['../../components/common/header.vue'], resolve)

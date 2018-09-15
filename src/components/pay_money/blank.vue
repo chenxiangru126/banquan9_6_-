@@ -27,7 +27,7 @@ export default {
             if(e.code != 200){
               this.$router.push('/secret?number='+art_name);
             }else{
-              this.$router.push('/make');
+              this.$router.push('/make');//
 
             }})
         })

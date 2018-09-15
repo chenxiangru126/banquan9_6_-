@@ -718,7 +718,7 @@ Vue.component(DatetimePicker.name, DatetimePicker);
                      if(e.code ==200){
                         this.$router.push('/pay_money?name='+pro_name+'&number='+number)
                      }else{
-                        this.Toast('信息保存异常')
+                        this.Toast('信息保存异常')//
                      } 
                 
               })

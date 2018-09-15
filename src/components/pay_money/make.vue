@@ -116,7 +116,7 @@ export default {
  <style lang="less">
  @import 'make.less';
  /*.header_if{*/
-     /*background: #232323;*/
+     /*background: #232323;*///
      /*width:100%;*/
      /*position: absolute;*/
      /*z-index: 100;*/
