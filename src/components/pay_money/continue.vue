@@ -25,7 +25,7 @@ export default {
           console.log(data);
           this.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
             console.log(data);
-            if(e.code != 200){//
+            if(e.code != 200){
               this.$router.push('/pay_money?name='+art_name+'&number='+number)
             }else{
               this.$router.push('/success');

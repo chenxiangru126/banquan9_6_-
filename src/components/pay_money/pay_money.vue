@@ -68,7 +68,7 @@
                         }
                         },300)
                         },
-                   submit_e(a) {
+                   submit_e(a) {//
                 //a 支付方式 1支付宝 2微信
                      
                     var url;

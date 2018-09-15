@@ -450,7 +450,7 @@ export default {
              return false
            }else{
                
-            // 提交存证数据
+            // 提交存证数据//
              let _p ={
               name,
               auth_name,

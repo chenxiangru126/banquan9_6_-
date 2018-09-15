@@ -43,7 +43,7 @@ export default {
      },
      methods:{
       
-//       zhifu(art_name,number){//
+//       zhifu(art_name,number){
 //          this.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
 //                    if(e.code != 200){
 //                    this.$router.push('/pay_money?name='+art_name+'&number='+number)
