@@ -1,5 +1,9 @@
 <template>
 <div class="ban_cun">
+    <div class="header_if" >
+        <div class="_back" @click="back_event"></div>
+
+    </div>
    <div class="ban_cun_img">
        <img class="img1" :src="url1" alt="">
        <img class="img2" :src="url2" alt="">
@@ -74,6 +78,9 @@ export default {
         }
     },
     methods:{
+      back_event(){
+        this.$router.push('/reg_list')
+      },
       ji_xu(){
           let name = this.name      
           let number = this.number
@@ -91,6 +98,27 @@ export default {
 </script>
 <style lang="less">
 @import 'ban_cun_zhan.less';
+.header_if{
+    background: #232323;
+    width:100%;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    top:1.25rem;
+
+    ._back{
+        width: 4rem;
+        height: 2.933333rem;
+        background: url(../../static/images/left.svg) no-repeat;
+        background-size: 1.466667rem;
+        background-position: 1.333333rem center;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+    }
+
+}
 </style>
 
 

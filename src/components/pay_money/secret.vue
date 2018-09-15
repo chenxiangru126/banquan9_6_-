@@ -1,6 +1,11 @@
 
     <template>
     <div class="reg2_wrap">
+
+        <div class="header_if" >
+        <div class="_back" @click="back_event"></div>
+
+        </div>
     <!-- 交保证金 -->
    <div class="reg2_content">
       <div>作品加密费</div>
@@ -54,6 +59,9 @@
                         }
                         },450)
                         },
+                   back_event(){
+                     this.$router.push('/ban_copy');
+                   },
                    submit_e(a) {
                 //a 支付方式 1支付宝 2微信
                      
@@ -73,14 +81,14 @@
                         }
                     if(a==1){  
                         url= location.protocol+'//'+location.hostname
-                           +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=1'+'&token='+this.token;
+                           +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=1';
                         window.location.href=url;
-                        iosObject.showCheckOrderBtn(location.origin+'/index.html#/make')
+                        iosObject.showCheckOrderBtn(location.origin+'/index.html#/blank')
                     }else if(a==2){
                          url= location.protocol+'//'+location.hostname
-                               +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=2'+'&token='+this.token;
+                               +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=1';
                         window.location.href=url; 
-                        iosObject.showCheckOrderBtn(location.origin+'/index.html#/make')//iOS放在微信上来
+                        iosObject.showCheckOrderBtn(location.origin+'/index.html#/blank')//iOS放在微信上来
                     }
                     
                     
@@ -93,6 +101,27 @@
     </script>
     <style lang="less">
     @import 'secret.less';
+    .header_if{
+    background: #232323;
+    width:100%;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    top:1.25rem;
+
+    ._back{
+    width: 4rem;
+    height: 2.933333rem;
+    background: url(../../static/images/left.svg) no-repeat;
+    background-size: 1.466667rem;
+    background-position: 1.333333rem center;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    }
+
+    }
     </style>
     
     
