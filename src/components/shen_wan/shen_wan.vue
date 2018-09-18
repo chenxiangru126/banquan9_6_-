@@ -9,8 +9,18 @@
     </div>
    <div class="wan_img">
 
-       <img :src="url1" alt="">
-       <img :src="url2" alt="">
+      <div class="ban_cun_img">
+          <div class="img1">
+              <img  :src="url1" alt="">
+              <a class="dianji_ewm" href="http://www.zhongyunwenhua.cn"></a>
+          </div>
+          
+          <div class="img2">
+              <img  :src="url2" alt="">
+              <a class="dianji_ewm" href="http://www.zhongyunwenhua.cn"></a>
+          </div>
+      </div>
+
        <p class="zhu">注：点击二维码可查看更多证书详情</p>
        <div style=" padding: 0 1.375rem;">
        <h3 style="font-size:18px;color:#ffffff;border-bottom: .0625rem solid #9B9B9B;padding-bottom:4px">版权登记</h3>

@@ -49,7 +49,8 @@
         },
          methods:{
            back_event(){
-            this.$router.go(-1)  //payMoney返回跳转
+//            this.$router.go(-1)  //payMoney返回跳转
+               this.$router.push('/reg_list');
            },
               userGetinfo(){
                         var _this = this;
@@ -108,7 +109,7 @@
     .header_if{
         background: #232323;
         width:100%;
-        position: absolute;
+        position: fixed;
         z-index: 100;
         text-align: center;
         top:1.25rem;

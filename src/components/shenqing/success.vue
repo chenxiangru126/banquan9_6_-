@@ -92,7 +92,7 @@ export default {
  .header_if{
      background: #232323;
      width:100%;
-     position: absolute;
+     position: fixed;
      z-index: 100;
      text-align: center;
      top:1.25rem;

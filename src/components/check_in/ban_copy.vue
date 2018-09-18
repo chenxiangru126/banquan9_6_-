@@ -127,7 +127,7 @@
  
    <div class="agree t-c c1">
        <div>
-       <label for="classify"><input type="checkbox" id="classify" class="__input" style="margin-right:14px"> </label>
+       <label for="classify"><input type="checkbox" id="classify" class="__input" style="margin-right:14px; border:1px solid  #4A8ADA; border-radius: 50%;"> </label>
        <span>已阅读同意</span>
         <span style="font-size:14px;color:#4A8ADA" @click="go_user_polo">《版权协议》</span>
             <div class="submit-btn-1" style="margin: 11px auto 0" @click="art_btn">
@@ -240,22 +240,22 @@ export default {
                     // debugger
                     
                      if(num == 'one'){
-                        this.url_list_one = e.path;  
+                        this.url_list_one = e.data.path;
                         this.url_list.push(this.url_list_one);
                         
 
                      }else if(num =='two'){
-                        this.url_list_two = e.path
+                        this.url_list_two = e.data.path
                         // this.arr.add(e.path);
                         this.url_list.push(this.url_list_two);
 
 
                      }else if(num =='three'){
-                        this.url_list_three = e.path
+                        this.url_list_three = e.data.path
                         this.url_list.push(this.url_list_three);
 
                      }else if(num == 'four'){
-                         this.url_list_four = e.path
+                         this.url_list_four = e.data.path
                          this.url_list.push(this.url_list_four);
          
                      }

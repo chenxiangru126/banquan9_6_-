@@ -83,7 +83,7 @@
                         url= location.protocol+'//'+location.hostname
                            +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=1';
                         window.location.href=url;
-                        iosObject.showCheckOrderBtn(location.origin+'/index.html#/blank')
+                        iosObject.showCheckOrderBtn(location.origin+'/index.html#/nextBlank')
                     }else if(a==2){
                          url= location.protocol+'//'+location.hostname
                                +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=1';
@@ -104,7 +104,7 @@
     .header_if{
     background: #232323;
     width:100%;
-    position: absolute;
+    position: fixed;
     z-index: 100;
     text-align: center;
     top:1.25rem;

@@ -15,24 +15,24 @@ import util from '../../libs/util'
 */
 export default {
 
-    created(){
-      setTimeout(()=>{
-        this.util.ajax.post('/admin/copyrightTemp/getId.do').then(e=>{
-          console.log(e.data)
-          var data = JSON.parse(e.data)
-          let art_name = data.name
-          console.log(data);
-          this.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
-            console.log(data);
-            if(e.code != 200){
-              this.$router.push('/secret?number='+art_name);
-            }else{
-              this.$router.push('/make');
-
-            }})
-        })
-      },3000)
-    },
+//    created(){
+//      setTimeout(()=>{
+//        this.util.ajax.post('/admin/copyrightTemp/getId.do').then(e=>{
+//          console.log(e.data)
+//          var data = JSON.parse(e.data)
+//          let art_name = data.name
+//          console.log(data);
+//          this.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
+//            console.log(data);
+//            if(e.code != 200){
+//              this.$router.push('/secret?number='+art_name);
+//            }else{
+//              this.$router.push('/make');
+//
+//            }})
+//        })
+//      },3000)
+//    },
     mounted(){
    
     },
