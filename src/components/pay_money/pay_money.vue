@@ -44,12 +44,14 @@
                 number:null,
                 token:null, 
                 name:null,
-                url:null
+                url:null,
+                orderId:null
             }
         },
          methods:{
            back_event(){
-            this.$router.go(-1)  //payMoney返回跳转
+//            this.$router.go(-1)  //payMoney返回跳转
+               this.$router.push('/reg_list');
            },
               userGetinfo(){
                         var _this = this;
@@ -84,17 +86,25 @@
                         }else{
                         _this.userGetinfo();
                         }
-                    if(a==1){  
-                        url= location.protocol+'//'+location.hostname
+                     this.util.ajax.get('/mall/invoice_order/yuPayOrder.do').then(e=>{
+                           if(e.code == 200){
+                               this.orderId = e.data.orderId
+                               sessionStorage.setItem('copyright_p_orderId',this.orderId);   
 
-                           +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=2';
-                    }else if(a==2){
-                         url= location.protocol+'//'+location.hostname
-                               +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=2';
+                                if(a==1){  
+                                    url= location.protocol+'//'+location.hostname
 
-                    }
-                    iosObject.showCheckOrderBtn(location.origin+'/index.html#/continue')
-                        window.location.href=url;    
+                                    +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=2'+'&orderId='+this.orderId;
+                                }else if(a==2){
+                                    url= location.protocol+'//'+location.hostname
+                                        +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=2'+'&orderId='+this.orderId;
+
+                                }
+                                iosObject.showCheckOrderBtn(location.origin+'/index.html#/continue')
+                                    window.location.href=url;    
+                           } 
+                     })      
+                   
                                      
             } 
          }
@@ -108,7 +118,7 @@
     .header_if{
         background: #232323;
         width:100%;
-        position: absolute;
+        position: fixed;
         z-index: 100;
         text-align: center;
         top:1.25rem;

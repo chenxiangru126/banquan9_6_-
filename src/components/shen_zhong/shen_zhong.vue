@@ -1,9 +1,16 @@
 <template>
 <div class="ban_cun">
-   <div>
-       <img :src="url1" alt="">
-        <img :src="url2" alt="">
-   </div>
+    <div class="ban_cun_img">
+       <div class="img1">
+           <img  :src="url1" alt="">
+           <a class="dianji_ewm" href="http://www.zhongyunwenhua.cn"></a>
+       </div>
+       
+       <div class="img2">
+           <img  :src="url2" alt="">
+           <a class="dianji_ewm" href="http://www.zhongyunwenhua.cn"></a>
+       </div>
+    </div>
      <div class="agree2 ">
             <div class="flex-h" style="margin-top:15px;" >    
            <div class="cancel_btn ji_btn " @click="ji_xu_s" >申请已提交</div>

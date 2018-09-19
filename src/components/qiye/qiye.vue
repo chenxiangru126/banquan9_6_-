@@ -61,7 +61,7 @@ export default {
               
                 this.util.ajax.post("/admin/authCopyright/upload.do", formData).then(e => {   
                     //  返回的参数
-                    this.avatar=e.path
+                    this.avatar=e.data.path
                 }).catch()
             },
             get_real(){

@@ -144,7 +144,7 @@ export default {
                 // 发送异步请求，把formData发送异步请求
                 this.util.ajax.post("/admin/authCopyright/upload.do", formData).then(e => {   
                     //  返回的参数
-                    this.avatar=e.path
+                    this.avatar=e.data.path
                 }).catch()
             },
             // 身份证背面上传
@@ -160,7 +160,7 @@ export default {
                 // 发送异步请求，把formData发送异步请求
                 this.util.ajax.post("/admin/authCopyright/upload.do", formData).then(e => {
                     //  返回的参数
-                    this.avar_fan =e.path
+                    this.avar_fan =e.data.path
                 }).catch()
             },
              // 手持身份证
@@ -177,7 +177,7 @@ export default {
                 this.util.ajax.post("/admin/authCopyright/upload.do", formData).then(e => {
                     //  返回的参数
 
-                    this.avar_shou =e.path
+                    this.avar_shou =e.data.path
                 }).catch()
             },
 

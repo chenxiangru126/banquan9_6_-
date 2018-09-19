@@ -5,15 +5,22 @@
 
     </div>
    <div class="ban_cun_img">
-       <img class="img1" :src="url1" alt="">
-       <img class="img2" :src="url2" alt="">
-   
-   </div>
+       <div class="img1">
+           <img  :src="url1" alt="">
+           <a class="dianji_ewm" href="http://www.zhongyunwenhua.cn"></a>
+       </div>
+       
+       <div class="img2">
+           <img  :src="url2" alt="">
+           <a class="dianji_ewm" href="http://www.zhongyunwenhua.cn"></a>
+       </div>
+    </div>
+
      <div class="agree1">
            <div class="text">您已成功获得由中云文化颁发的版权存证书继续申请由中云文化、
                贵州版权局颁发的版权登记证书，还可以获得由中云文化提供的权确权、
                版权监测、版权维护、 交易信息变更等服务内容。 </div>
-            <div class="flex-h" style="margin-top:15px;" > 
+            <div class="flex-h" style="margin-top:.733333rem" > 
 
                <div class="cancel_btn  ji_xu" @click="ji_xu" >继续申请</div>
             </div>
@@ -101,7 +108,7 @@ export default {
 .header_if{
     background: #232323;
     width:100%;
-    position: absolute;
+    position: fixed;
     z-index: 100;
     text-align: center;
     top:1.25rem;

@@ -25,7 +25,7 @@
     export default {
         created(){
             var that = this 
-             let name = that.$route.query.name
+             let name = that.$route.query.number
              that.name = name
              setTimeout(()=>{
               that.userGetinfo()
@@ -38,7 +38,8 @@
          data(){
              return{
                  name:null, //作品名 
-                 token:null, 
+                 token:null,
+                 orderId:null
              }
          },
          methods:{
@@ -79,17 +80,25 @@
                         }else{
                         _this.userGetinfo();
                         }
-                    if(a==1){  
-                        url= location.protocol+'//'+location.hostname
-                           +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=1';
-                        window.location.href=url;
-                        iosObject.showCheckOrderBtn(location.origin+'/index.html#/blank')
-                    }else if(a==2){
-                         url= location.protocol+'//'+location.hostname
-                               +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=1';
-                        window.location.href=url; 
-                        iosObject.showCheckOrderBtn(location.origin+'/index.html#/blank')//iOS放在微信上来
-                    }
+                       this.util.ajax.get('/mall/invoice_order/yuPayOrder.do').then(e=>{
+                           if(e.code == 200){
+                               this.orderId = e.data.orderId
+                               sessionStorage.setItem('copyright_s_orderId',this.orderId);
+                                //去支付
+                               if(a==1){
+                                    url= location.protocol+'//'+location.hostname
+                                    +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=1'+'&orderId='+this.orderId;
+                                    window.location.href=url;
+                                    iosObject.showCheckOrderBtn(location.origin+'/index.html#/nextBlank')
+                                }else if(a==2){
+                                    url= location.protocol+'//'+location.hostname
+                                        +'/mall/invoice_order/payForcopyright.do?number='+name+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=1'+'&orderId='+this.orderId;
+                                    window.location.href=url; 
+                                    iosObject.showCheckOrderBtn(location.origin+'/index.html#/blank')//iOS放在微信上来
+                                }
+                           }
+                       })
+                       
                     
                     
                          
@@ -104,7 +113,7 @@
     .header_if{
     background: #232323;
     width:100%;
-    position: absolute;
+    position: fixed;
     z-index: 100;
     text-align: center;
     top:1.25rem;

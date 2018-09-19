@@ -53,6 +53,16 @@ const pay = [{
       default: resolve => require(['../../components/pay_money/continue.vue'], resolve),
       // headers: resolve => require(['../../components/common/header.vue'], resolve)
     }
-  }
+  },{
+        path: '/nextBlank',
+        name: 'nextBlank',
+        meta: {
+            title: ""
+        },
+        components: {
+            default: resolve => require(['../../components/pay_money/nextBlank.vue'], resolve),
+            // headers: resolve => require(['../../components/common/header.vue'], resolve)
+        }
+    }
 ]
 export default pay;
