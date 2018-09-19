@@ -20,11 +20,13 @@ export default {
   },
    created(){
     //  var that = this
+       let orderId = sessionStorage.getItem('copyright_s_orderId');
        setTimeout(()=>{
          this.util.ajax.post('/admin/copyrightTemp/getId.do').then(e=>{
            console.log(e.data)
            var data = JSON.parse(e.data)
            this.art_name = data.name
+           data.orderId = orderId
            this.initData(data)
 //           console.log(data);
 //           this.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
@@ -88,8 +90,8 @@ export default {
                    if(e.code == 200){
 //                        alert('成功请求到')
 //                        alert('url1'+url1)
-
-                    let url1 = e.data.bc_certificate_url1
+                       sessionStorage.removeItem("copyright_s_orderId")
+                       let url1 = e.data.bc_certificate_url1
                      let url2 = e.data.bc_certificate_url2 
                       let number = e.data.block_cert_number
                       let name = e.data.name

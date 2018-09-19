@@ -16,13 +16,14 @@
     export default {
 
         created(){
+            let orderId = sessionStorage.getItem('copyright_s_orderId');
             setTimeout(()=>{
                 this.util.ajax.post('/admin/copyrightTemp/getId.do').then(e=>{
                     console.log(e.data)
                     var data = JSON.parse(e.data)
                     let art_name = data.name
                     console.log(data);
-                    this.util.ajax.get('/mall/invoice_order/checkPay.do').then((e)=>{
+                    this.util.ajax.get('/mall/invoice_order/checkPay.do?orderId='+orderId).then((e)=>{
                         console.log(data);
                         if(e.code != 200){
                             this.$router.push('/secret?number='+art_name);

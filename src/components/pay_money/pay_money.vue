@@ -44,7 +44,8 @@
                 number:null,
                 token:null, 
                 name:null,
-                url:null
+                url:null,
+                orderId:null
             }
         },
          methods:{
@@ -85,17 +86,25 @@
                         }else{
                         _this.userGetinfo();
                         }
-                    if(a==1){  
-                        url= location.protocol+'//'+location.hostname
+                     this.util.ajax.get('/mall/invoice_order/yuPayOrder.do').then(e=>{
+                           if(e.code == 200){
+                               this.orderId = e.data.orderId
+                               sessionStorage.setItem('copyright_p_orderId',this.orderId);   
 
-                           +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=2';
-                    }else if(a==2){
-                         url= location.protocol+'//'+location.hostname
-                               +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=2';
+                                if(a==1){  
+                                    url= location.protocol+'//'+location.hostname
 
-                    }
-                    iosObject.showCheckOrderBtn(location.origin+'/index.html#/continue')
-                        window.location.href=url;    
+                                    +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=1'+'&token='+this.token+'&fromType=2'+'&orderId='+this.orderId;
+                                }else if(a==2){
+                                    url= location.protocol+'//'+location.hostname
+                                        +'/mall/invoice_order/payForcopyright.do?number='+number+'&money=0.01'+'&payWay=2'+'&token='+this.token+'&fromType=2'+'&orderId='+this.orderId;
+
+                                }
+                                iosObject.showCheckOrderBtn(location.origin+'/index.html#/continue')
+                                    window.location.href=url;    
+                           } 
+                     })      
+                   
                                      
             } 
          }
